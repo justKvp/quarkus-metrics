@@ -20,9 +20,9 @@ public class GreetingService {
 
     public GreetingService(MeterRegistry registry) {
         this.registry = registry;
-        this.timer = Timer.builder("my_timer")
+        this.timer = Timer.builder("helloTimer")
                 .description("description of timer") // optional
-                //.tags("region", "test")      // optional
+                //.tags("timerName", "helloTimer")      // optional
                 .register(registry);
     }
 
