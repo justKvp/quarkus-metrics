@@ -20,11 +20,12 @@ public class GreetingService {
 
     public GreetingService(MeterRegistry registry) {
         this.registry = registry;
-        this.timer = registry.timer("my_timer");
+        this.timer = Timer.builder("my_timer")
+                .description("description of timer") // optional
+                //.tags("region", "test")      // optional
+                .register(registry);
     }
 
-    @Timed(value = "greetings.service.method.hello.time", longTask = true, extraTags = {"extraFlag1", "extraFlag2"})
-    @Counted(value = "greetings.service.method.hello.count", extraTags = {"extraFlag1", "extraFlag2"})
     public String getHello() {
         long start = System.nanoTime();
 

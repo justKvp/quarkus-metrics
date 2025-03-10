@@ -15,7 +15,7 @@ public class GreetingResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    @Counted(value = "get.greetings.hello.requests", extraTags = {"extraFlag1", "extraFlag2"})
+    @Counted(value = "get.greetings.hello.requests", extraTags = {"extraTag1"})
     public String hello() {
         return greetingService.getHello();
     }
